@@ -1,0 +1,236 @@
+﻿@using doanweb1.Entities
+@model List<SanPham>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+
+<!-- ----------------------------- CARTEGORY----------------------------- -->
+<section class="cartegory">
+    <div class="container">
+        <div class="cartegory-top row">
+            <p>Trang chủ</p> <span>&#8594;  </span>
+            <p>Nữ</p> <span>&#8594;</span>
+            <p>Hàng nữ mới về</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+           
+            <div class="cartegory-left col-sm-3">
+                <ul>
+                    <li class="cartegory-left-li">
+                        <a href="#">NAM</a>
+                        <ul>
+                            <li><a href="">HÀNG NAM MỚI VỀ</a></li>
+                            <li><a href="">BRYOND TRENDY</a></li>
+                            <li><a href="">JEANS FOR JOY</a></li>
+                            <li><a href="">Quần JEANS NAM</a></li>
+                        </ul>
+                    </li>
+                    <li class="cartegory-left-li">
+                        <a href="#">NỮ</a>
+                        <ul>
+                            <li><a href="">HÀNG NỮ MỚI VỀ</a></li>
+                            <li><a href="">BRYOND TRENDY</a></li>
+                            <li><a href="">JEANS FOR JOY</a></li>
+                            <li><a href="">Quần JEANS NỮ</a></li>
+                        </ul>
+                    </li>
+                    <li class="cartegory-left-li">
+                        <a href="#">TRẺ EM</a>
+                        <ul>
+                            <li><a href="">HÀNG NỮ MỚI VỀ</a></li>
+                            <li><a href="">BRYOND TRENDY</a></li>
+                            <li><a href="">JEANS FOR JOY</a></li>
+                            <li><a href="">Quần jeans nữ</a></li>
+                        </ul>
+                    </li>
+                    <li class="cartegory-left-li"><a href="">BỘ SƯU TẬP</a></li>
+                    <li class="cartegory-left-li"><a href="">ĐỒ BẢO HỘ</a></li>
+                </ul>
+            </div>
+            <div class="cartegory-right col-sm-9">
+                <div class="cartegory-right-top row">
+                    <div class="cartegory-right-top-item col-sm-6">
+                        <p>HÀNG NỮ MỚI VỀ</p>
+                    </div>
+                    <div class="cartegory-right-top-item col-sm-3">
+                        <button><span>Bộ lọc</span> <i class="fa-solid fa-caret-down"></i></button>
+                    </div>
+                    <div class="cartegory-right-top-item col-sm-3">
+                        <select name="" id="">
+                            <option value="">Sắp sếp</option>
+                            <option value="">Giá cao đến thấp</option>
+                            <option value="">Giá thấp đến cao</option>
+                            <option value="">Mức giá</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="cartegory-right-content row">
+                     @foreach (var sp in Model){
+                       
+
+
+                        
+                        <div class="cartegory-right-content-item col-sm-3 ">
+                        @* <a href="" class="cartegory-right-bottom-item-link">@sp?.HinhAnhs.First().Image.FirstOrDefault()</a> *@
+                            @if (sp.HinhAnhs != null && sp.HinhAnhs.Count > 0)
+                            {
+                                var image = sp.HinhAnhs.FirstOrDefault();
+                                <a href="" class="cartegory-right-bottom-item-link"><img src="@image.Image" /></a>
+                                
+                            }
+                        <div class="infoProducts">
+                            <h1>@sp.TenSp</h1>
+                            <p class="item-color">Màu sắc: Ghi khói</p>
+                            <p class="price-item">@sp.GiaSp</p>
+                                <button  class="btn btn-secondary" onclick="addToCart(@sp.Id)">Add to Cart</button>
+                         
+                        </div>
+                        
+                    </div>
+                    }
+                    
+                   @*  <div class="cartegory-right-content-item col-sm-3 ">
+                        <a href="" class="cartegory-right-bottom-item-link"><img src="./assets/img/products/items_female/KAYLIN_BLAZER/item2_1.jpg" alt=""></a>
+                        <div class="infoProductas">
+                                <h1>@sp.TenSp</h1>
+                            <p class="item-color">Màu sắc: Ghi khói</p>
+                                <p class="price-item">@sp.GiaSp</p>
+                        </div>
+                    </div>
+
+                    <div class="cartegory-right-content-item col-sm-3 ">
+                        <a href="products.html" class="cartegory-right-bottom-item-link"><img src="./assets/img/products/items_female/MADDY_DRESS_BLACK/item3_1.jpg" alt=""></a>
+                        <div class="infoProducts">
+                                <h1>@sp.TenSp</h1>
+                            <p class="item-color">Màu sắc: Kẻ Đen</p>
+                                <p class="price-item">@sp.GiaSp</p>
+                        </div>
+                    </div>
+
+                    <div class="cartegory-right-content-item col-sm-3 ">
+                        <a href="" class="cartegory-right-bottom-item-link"><img src="./assets/img/products/items_female/TWEED_OTIS/item41.jpg" alt=""></a>
+                        <div class="infoProducts">
+                                <h1>@sp.TenSp</h1>
+                            <p class="item-color">Màu sắc: Đen</p>
+                                <p class="price-item">@sp.GiaSp</p>
+                        </div>
+                    </div>
+                    <div class="cartegory-right-content-item col-sm-3">
+                        <a href="" class="cartegory-right-bottom-item-link"><img src="./assets/img/products/items_female/CHAN_VAY_MIDI/item51.jpg" alt=""></a>
+                            <h1>@sp.TenSp</h1>
+                        <p class="item-color">Màu sắc: Đen</p>
+                            <p class="price-item">@sp.GiaSp</p>
+                    </div>
+                    <div class="cartegory-right-content-item col-sm-3">
+                        <a href="" class="cartegory-right-bottom-item-link"><img src="./assets/img/products/items_female/TWEED_CAILY/item61.jpg" alt=""></a>
+                            <h1>@sp.TenSp</h1>
+                        <p class="item-color">Màu sắc: Đen</p>
+                            <p class="price-item">@sp.GiaSp</p>
+                    </div>
+                    <div class="cartegory-right-content-item col-sm-3">
+                        <a href="" class="cartegory-right-bottom-item-link"><img src="./assets/img/products/items_female/DORIS_DRESS/item71.jpg" alt=""></a>
+                        <h1>DORIS DRESS - ĐẦM LỤA CỔ K</h1>
+                        <p class="item-color">Màu sắc: Hồng san hô</p>
+                        <p class="price-item">1.790.000đ</p>
+                    </div>
+                    <div class="cartegory-right-content-item col-sm-3">
+                        <a href="" class="cartegory-right-bottom-item-link"><img src="./assets/img/products/items_female/STELLA_GILE/item01.jpg" alt=""></a>
+                        <h1>STELLA GILE - ÁO GILE CỔ V</h1>
+                        <p class="item-color">Màu sắc: Vàng hoa cúc</p>
+                        <p class="price-item">1.150.000đ</p>
+                    </div>
+                    <div class="cartegory-right-content-item col-sm-3">
+                        <a href="" class="cartegory-right-bottom-item-link"><img src="./assets/img/products/items_female/AO_SO_MI_LUA_CO_TRU/item02.jpg" alt=""></a>
+                        <h1>ÁO SƠ MI LỤA CỔ TRỤ PHỐI BÈO</h1>
+                        <p class="item-color">Màu sắc: Trắng</p>
+                        <p class="price-item">1.150.000đ</p>
+                    </div> *@
+                    
+                </div>
+                <div class="cartegory-right-bottom row">
+                    <div class="cartegory-right-bottom-item col-sm-6">
+                        <p class="p-left">Hiển thị 2<span> | </span> 4 sản phẩm</p>
+                    </div>
+                    <div class="cartegory-right-bottom-item col-sm-6" style="float: right;">
+                        <p class="p-right"><span>&#8829;</span>1 2 3 4 5 <span>&#8828;</span> Trang cuối</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    const addToCart = (id) => {
+        fetch(`/Cart/AddItem/${id}`, {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+
+        });
+    }
+
+</script>
+
+
+@*  <!doctype html>
+<html lang="en">
+
+  <body>
+    @foreach (var sp in Model)
+    {
+        
+        
+        
+       
+        
+            
+        
+    }
+
+
+    <div class="product-list">
+        <section style="background-color: #eee;">
+            <div class="container py-5">
+                <div class="row">
+                    @foreach (var sp in Model){
+                    <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
+                        <div class="card">
+
+                            <img src="https://routine.vn//media/catalog/category/ao-tanktop-nam-dep-cao-cap-thoi-trang-routine-chinh-hang.jpg"
+                                 class="card-img-top" alt="ao thun " />
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <p class="small">giá:@sp.GiaSp</p>
+                                    <p class="small text-danger">@sp.LoaiSp</p>
+                                        <p class="ten-sp">@sp.TenSp</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                   
+                    
+                </div>
+            </div>
+        </section>
+ </div>
+
+                  
+
+
+    
+    
+</body>
+
+</html>  *@

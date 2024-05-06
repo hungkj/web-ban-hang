@@ -1,0 +1,82 @@
+
+.header-color{
+    background-color: rgb(247, 212, 160);
+}
+.bi bi-0-circle{
+   padding: 2px;
+}
+
+.bi bi-search{
+    color: black;
+
+}
+
+.bi bi-person{
+    color: black;
+}
+
+.bi bi-cart{
+   
+}
+.icon-cart{
+    position: relative;
+}
+.icon-cart span{
+    display: flex;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 50%;
+    position:absolute;file:///D:/Shopee-Demo/Shopee-Demo/assets/img/slides/slide04.jpg
+    top: 50%;
+    right: -0.05px;
+}
+
+.btn-outline-success {
+    border-color: transparent; /* Đặt màu border thành transparent */
+  }
+.d-flex{
+    display: flex;
+    
+}
+
+i{
+    font-size: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+
+}
+.nav-link{
+    color: black;
+    font-weight: bold;
+    
+}
+.hr-style{
+    border: none; /* Loại bỏ border mặc định của <hr> */
+    border-top: 1px solid black; 
+}
+.form-control me-2{
+    height: 35px;
+    background-color: transparent; /* Làm ô tìm kiếm trong suốt */
+  border: none; 
+}
+
+
+.right{
+    float: right;
+}
+
+form-check d-flex justify-content-center mb-5{
+    padding-right: 57px;
+}
+
+.add-cart{
+    cursor: :pointer;
+}
+
+.validation-summary-errors {
+    background-color: red;
+}

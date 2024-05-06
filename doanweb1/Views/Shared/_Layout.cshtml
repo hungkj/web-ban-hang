@@ -1,0 +1,463 @@
+﻿@using doanweb1.Entities
+
+@using Microsoft.AspNetCore.Http
+
+
+@{
+    var a = Context.Session.GetString("Name");
+    
+}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css" > <!-- Đường dẫn tới file CSS  -->
+    <link rel="stylesheet" href="/css/products-detail-itemp.css">
+    <link rel="stylesheet" href="/css/media.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  </head>
+  <body>
+    <div class="header-color">
+        <nav class="navbar navbar-expand-lg navbar-color">
+            <div class="container">
+              <a class="navbar-brand" href="#">
+               <a class="Logo" href="/Home"><img src="/image/lucas_logo.PNG" alt="Lucas Logo"></a>
+              </a>
+              
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>   
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/Product">NAM</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">NỮ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">TRẺ EM</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">SALE</a>
+                  </li>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">LIFESTYLE</a>
+                </li>
+                 </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">VỀ CHÚNG TÔI</a>
+                  </li>
+                  <!--<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"    aria-expanded="false">
+                      Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>-->
+                  </li>
+                  <!--<li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                  </li>-->
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="button">
+                    <i class="bi bi-search"></i>
+                  </button>
+                  <a href="/Auth/Login">@a<i class="bi bi-person"></i></a>
+                  
+                  <i class="bi bi-heart"></i>
+                   <div class="icon-cart">
+                   <a href="/Cart"><i class="bi bi-cart"></i></a>
+                  <span>0</span>
+                  </div>
+                </form>
+                
+              </div>
+              
+            </div>
+            
+          </nav>
+        <hr class="hr-style">
+    </div>
+
+      
+     @RenderBody()
+    <footer>
+        @*
+        <div>
+        <!-- -----------------------------CONTENTS PRODUCTS----------------------------- -->
+        <section id="content-main">
+        <div class="female-products">
+        <div class="container">
+        <h3>Thời trang Nữ</h3>
+        <div class="row">
+        @foreach (var sp in Model)
+        {
+        <div class="col-sm-6 col-md-4 col-lg-3">
+
+        <div class="infoProducts">
+        <a class="" href=""> <img src="@sp.Image"> </a>
+        <h1>ESER DRESS - SET ĐẦM DẠO PHỐ</h1>
+        <p class="item-color">Màu sắc: Ghi khói</p>
+        <p class="price-item">3.480.000đ</p>
+        </div>
+        </div>
+        }
+        <div class="col-sm-6 col-md-4 col-lg-3">
+        <a href="/products.html"><img src="./assets/img/products/items_female/AO_SO_MI_LUA_CO_TRU/item02.jpg" alt=""></a>
+        <div class="infoProducts">
+        <h1>ÁO SƠ MI LỤA CỔ TRỤ PHỐI BÈO</h1>
+        <p class="item-color">Màu sắc: Trắng</p>
+        <p class="price-item">1.150.000đ</p>
+        </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+        <a href=""><img src="./assets/img/products/items_female/STELLA_GILE/item01.jpg" alt=""></a>
+        <div class="infoProducts">
+        <h1>STELLA GILE - ÁO GILE CỔ V</h1>
+        <p class="item-color">Màu sắc: Vàng hoa cúc</p>
+        <p class="price-item">1.150.000đ</p>
+        </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+        <a href="" class="cartegory-right-bottom-item-link"><img src="./assets/img/products/items_female/DORIS_DRESS/item71.jpg" alt=""></a>
+        <div class="infoProducts">
+        <h1>DORIS DRESS - ĐẦM LỤA CỔ K</h1>
+        <p class="item-color">Màu sắc: Hồng san hô</p>
+        <p class="price-item">1.790.000đ</p>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+        <div class="male-products">
+        <div class="container">
+        <h3>Thời trang Nam</h3>
+        <div class="row">
+        <!-- Male Procucts-->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+        <a href=""><img src="./assets/img/products/items_male/Ao_len_Slim_fit_basic/item00.jpg" alt=""></a>
+        <div class="infoProducts">
+        <h1>Áo len Slim FIT basic</h1>
+        <p class="item-color">Màu sắc: Kẻ Đen</p>
+        <p class="price-item">1.150.000đ</p>
+        </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3">
+        <a href=""><img src="./assets/img/products/items_male/Ao_So_Mi_Khaki_Regular_fit/item01.jpg" alt=""></a>
+        <div class="infoProducts">
+        <h1>Áo sơ mi Khaki Regular Fit</h1>
+        <p class="item-color">Màu sắc: Vàng cam</p>
+        <p class="price-item">950.000đ</p>
+        </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3">
+        <a href=""><img src="./assets/img/products/items_male/Dalio_Trouser/item00.jpg" alt=""></a>
+        <div class="infoProducts">
+        <h1>Bộ Dalio_Trouser</h1>
+        <p class="item-color">Màu sắc: Kẻ Đen</p>
+        <p class="price-item">1.150.000đ</p>
+        </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3">
+        <a href=""><img src="./assets/img/products/items_male/Ao_len_Slim_fit_basic/item00.jpg" alt=""></a>
+        <div class="infoProducts">
+        <h1>Áo len lông HALAN</h1>
+        <p class="item-color">Màu sắc: Kẻ Đen</p>
+        <p class="price-item">1.150.000đ</p>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </section>
+
+        </div>
+        *@
+
+        <div class="footer-top">
+            <li><a href=""><img src="./assets/img/profiles/img-congthuong.png" alt=""></a></li>
+            <li><a href=""></a>Liên hệ</li>
+            <li><a href=""></a>Giới thiệu</li>
+            <li><a href=""></a>Dịch vụ khách hàng</li>
+            <li>
+                <a href="https://www.facebook.com/lucasduong2103" target="_blank" class="fa-brands fa-facebook"></a>
+                <a href="" class="fa-brands fa-square-youtube"></a>
+                <a href="" class="fa-brands fa-tiktok"></a>
+            </li>
+        </div>
+        <p style="text-align: center;">
+            Công ty Cổ phần Lucas Duong với số đăng ký kinh doanh: 0975 648 753 <br>
+            Địa chỉ đăng ký: thôn An Hải, xã Bình Châu, huyện Bình Sơn, tỉnh Quảng Ngãi, Việt Nam - 0972 085 901 <br>
+            Đặt hàng online: <b>0397 799 127</b>
+        </p>
+        <div class="footer-bottom">
+            <p>LucasStyle All rights reversed</p>
+        </div>
+    </footer>
+    @* <div class="footer">
+      <!-- Footer -->
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left -->
+   
+    <!-- Left -->
+
+    <!-- Right -->
+   
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>LUCAS
+          </h6>
+          <p>
+            Best clothing shop
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Products
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Angular</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">React</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Vue</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Laravel</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Pricing</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Settings</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Orders</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Help</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            info@example.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    Kết nối với chúng tôi
+    
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+  </div>
+  <div class="footer-ad">
+      <footer class="bg-body-tertiary text-center">
+          <!-- Grid container -->
+          <div class="container p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+              <!-- Facebook -->
+              <a
+              data-mdb-ripple-init
+                class="btn text-white btn-floating m-1"
+                style="background-color: #3b5998;"
+                href="#!"
+                role="button"
+                ><i class="bi bi-facebook"></i>
+              </a>
+        
+              <!-- Twitter -->
+              <a
+                data-mdb-ripple-init
+                class="btn text-white btn-floating m-1"
+                style="background-color: #55acee;"
+                href="#!"
+                role="button"
+                ><i class="bi bi-twitter"></i>
+              </a>
+        
+              <!-- Google -->
+              <a
+                data-mdb-ripple-init
+                class="btn text-white btn-floating m-1"
+                style="background-color: #dd4b39;"
+                href="#!"
+                role="button"
+                ><i class="bi bi-google"></i>
+              </a>
+        
+              <!-- Instagram -->
+              <a
+                data-mdb-ripple-init
+                class="btn text-white btn-floating m-1"
+                style="background-color: #ac2bac;"
+                href="#!"
+                role="button"
+                ><i class="bi bi-instagram"></i>
+              </a>
+        
+              <!-- Linkedin -->
+              <a
+                data-mdb-ripple-init
+                class="btn text-white btn-floating m-1"
+                style="background-color: #0082ca;"
+                href="#!"
+                role="button"
+                ><i class="bi bi-linkedin"></i>
+              </a>
+              <!-- Github -->
+              <a
+                data-mdb-ripple-init
+                class="btn text-white btn-floating m-1"
+                style="background-color: #333333;"
+                href="#!"
+                role="button"
+                ><i class="bi bi-github"></i>
+              ></a>
+            </section>
+            <!-- Section: Social media -->
+          </div>
+          <!-- Grid container -->
+        
+          <!-- Copyright -->
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2022 Copyright:
+         
+          </div>
+          <!-- Copyright -->
+        </footer>
+  </div>
+     *@
+   
+  </body>
+<!-- -----------------------------FOOTER----------------------------- -->
+
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger intent="WELCOME"
+              chat-title="Hỗ_trợ_Tư_vấn"
+              agent-id="69ac36bd-1dcc-4126-9d63-5f93373f9e47"
+              language-code="en"></df-messenger>
+<script src="./assets/js/script.js"></script>
+</html>
+
+
+
+
+@* <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - doanweb1</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/doanweb1.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">doanweb1</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - doanweb1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+ *@
