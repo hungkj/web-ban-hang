@@ -1,1 +1,1 @@
-web demo using html ,MVC
+web demo using HTML, CSS, MVC
